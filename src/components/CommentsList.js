@@ -12,6 +12,12 @@ function CommentsList() {
         setInputText("");
     }
 
+    function DeleteComments(keyItem) {
+        console.log("kkk");
+        const arrFilterComments = arrComments.filter((number) => number !== keyItem);
+        console.log(arrComments);
+    }
+
     return (
         <div>
             <label htmlFor="input">Введите комментарий:</label>
@@ -24,7 +30,8 @@ function CommentsList() {
             <button onClick={addComment}>Добавить комментарий</button>
             <ul>
                 {arrComments.map((item) => (
-                    <li key={arrComments.indexOf(item)}>{item}</li>
+                    <li key={arrComments.indexOf(item)}>{item}
+                        <button data-id={arrComments.indexOf(item)} onClick={DeleteComments(item)}>Удалить</button></li>
                 ))}
             </ul>
         </div >
